@@ -1,0 +1,25 @@
+{
+  "home": {
+    "title": "Accueil"
+  },
+  "header": {
+    "logo": "/logo.svg",
+    "navigation": [
+      {
+        "label": "Services",
+        "href": "/",
+        "children": [
+          { "label": "Home Services", "href": "/" },
+          { "label": "Driver", "href": "#" },
+          { "label": "Market", "href": "#" },
+          { "label": "Food", "href": "#" }
+        ]
+      },
+      { "label": "Partner", "href": "#about" },
+      { "label": "à propos", "href": "#services" },
+      { "label": "For Business", "href": "#partners" }
+    ],
+    "cta": "Se connecter",
+    "singnUp": "S'inscrire"
+  }
+}
