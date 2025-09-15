@@ -6,6 +6,12 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { useEffect, useRef, useState } from "react";
 
+export const languages: Record<string, { name: string; flag: string }> = {
+  fr: { name: "Français", flag: "🇫🇷" },
+  en: { name: "English", flag: "🇬🇧" },
+  ar: { name: "العربية", flag: "🇩🇿" },
+};
+
 export const LanguageSwitcher = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -17,12 +23,6 @@ export const LanguageSwitcher = () => {
   const handleLanguageChange = (newLocale: string) => {
     router.replace(pathname, { locale: newLocale });
     setIsOpen(false);
-  };
-
-  const languages: Record<string, { name: string; flag: string }> = {
-    fr: { name: "Français", flag: "🇫🇷" },
-    en: { name: "English", flag: "🇬🇧" },
-    ar: { name: "العربية", flag: "🇩🇿" },
   };
 
   // Close dropdown when clicking outside (desktop only)

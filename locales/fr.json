@@ -21,5 +21,80 @@
     ],
     "cta": "Se connecter",
     "singnUp": "S'inscrire"
+  },
+  "homeServices": {
+    "tabs": {
+      "home": "Services à domicile",
+      "driver": "Chauffeur",
+      "market": "Marché",
+      "food": "Restauration"
+    },
+    "title": "Commander un service à domicile",
+    "addressPlaceholder": "Entrez votre adresse",
+    "servicePlaceholder": "Rechercher un service",
+    "categoriesTitle": "Simplifiez-vous la vie avec Come2me",
+    "categoriesSubtitle": "Cliquez, planifiez et décrivez votre demande !",
+    "services": {
+      "cleaning": "Ménage",
+      "repair": "Travaux & réparation",
+      "electricity": "Électricité",
+      "carwash": "Lavage auto",
+      "moving": "Déménagement",
+      "it": "Informatique",
+      "mechanic": "Mécanicien",
+      "school": "Soutien scolaire",
+      "gardening": "Jardinage",
+      "painting": "Peinture",
+      "babysitting": "Garde d’enfants",
+      "beauty": "Coiffure & Beauté",
+      "plumbing": "Plomberie",
+      "gas": "Urgence Gaz",
+      "coach": "Coach Sportif",
+      "heating": "Chauffage",
+      "furniture": "Montage meuble"
+    }
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Entreprise",
+        "links": [
+          { "label": "Actualité", "href": "/news" },
+          { "label": "Nos services", "href": "/services" },
+          { "label": "À propos", "href": "/about" },
+          { "label": "Aide & contact", "href": "/contact" },
+          { "label": "Conditions générales", "href": "/terms" },
+          { "label": "Politique de confidentialité", "href": "/privacy" }
+        ]
+      },
+      {
+        "title": "Services",
+        "links": [
+          { "label": "Home Services", "href": "/services/home" },
+          { "label": "Driver", "href": "/services/driver" },
+          { "label": "Food", "href": "/services/food" },
+          { "label": "Market", "href": "/services/market" }
+        ]
+      },
+      {
+        "title": "Partner",
+        "links": [{ "label": "Devenir Partner", "href": "/partner" }]
+      },
+      {
+        "title": "Business",
+        "links": [{ "label": "Come2me pro", "href": "/pro" }]
+      }
+    ],
+    "social": {
+      "facebook": "https://facebook.com",
+      "instagram": "https://instagram.com",
+      "tiktok": "https://tiktok.com",
+      "youtube": "https://youtube.com"
+    },
+    "bottom": {
+      "copyright": "© 2025 Come2me Technologies Inc."
+    },
+    "language": "Français",
+    "country": "Algérie"
   }
 }

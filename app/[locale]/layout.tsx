@@ -6,6 +6,7 @@ import { routing } from "@/i18n/routing";
 
 import "../globals.css";
 import { Header } from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <Header />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

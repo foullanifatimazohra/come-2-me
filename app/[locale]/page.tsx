@@ -1,6 +1,9 @@
-import { getTranslations } from "next-intl/server";
+import HomeServicesSection from "@/components/pages/home";
 
-export default async function Home() {
-  const t = await getTranslations("home");
-  return <main>{t("title")}</main>;
+export default function Home() {
+  return (
+    <>
+      <HomeServicesSection />
+    </>
+  );
 }

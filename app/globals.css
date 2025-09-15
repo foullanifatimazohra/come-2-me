@@ -1,2 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
+@utility heading-2 {
+  @apply font-semibold text-3xl leading-[48px];
+}
+@utility sub-heading {
+  @apply font-medium text-2xl leading-[36px];
+}
+@utility heading-1 {
+  @apply text-[40px] font-bold leading-[56px];
+}
