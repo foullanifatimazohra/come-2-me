@@ -10,3 +10,11 @@
 @utility heading-1 {
   @apply text-[40px] font-bold leading-[56px];
 }
+@utility card-shadow {
+  box-shadow: 0px 2px 4px 0px rgba(23, 26, 31, 0.09);
+}
+@utility main-card {
+  @apply border-[#F3F4F6] rounded-[10px] bg-white;
+  box-shadow: 0px 8.5px 13.75px 0px rgba(23, 26, 31, 0.22);
+  box-shadow: 0px 0px 2px 0px rgba(23, 26, 31, 0.08);
+}
