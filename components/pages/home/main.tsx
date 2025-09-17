@@ -89,7 +89,7 @@ export default function Main() {
           className="max-w-[680px] px-9 py-4 main-card bg-white"
         >
           {/* ---- Tabs ---- */}
-          <TabsList className="flex flex-wrap gap-6 p-0 justify-center mb-6 h-full w-full rounded-none border-b-1 border-[#BDC1CA]">
+          <TabsList className="flex flex-wrap gap-6 p-0 justify-center h-full w-full rounded-none border-b-1 border-[#BDC1CA]">
             <TabsTrigger
               value="home"
               className="data-[state=inactive]:opacity-50 data-[state=active]:border-b-2 data-[state=active]:border-b-[#1E2128] rounded-none !shadow-none h-fit"
@@ -158,52 +158,56 @@ export default function Main() {
           {/* ---- Content ---- */}
           <TabsContent value="home">
             <Card className="border-none shadow-none text-start">
-              <CardContent className="flex flex-col gap-4">
-                <h2 className="heading-2">{t("title")}</h2>
-                <p className="sub-heading">Home Services</p>
+              <CardContent className="flex flex-col">
+                <h2 className="heading-2 max-w-[25ch]">{t("title")}</h2>
+                <p className="sub-heading mb-4">Home Services</p>
 
-                {/* Adresse input with dropdown */}
-                <div className="relative flex flex-col gap-2">
-                  <Input
-                    placeholder={t("addressPlaceholder")}
-                    value={address}
-                    onFocus={() => setShowDropdown(true)}
-                    onBlur={() => setTimeout(() => setShowDropdown(false), 200)}
-                    onChange={(e) => setAddress(e.target.value)}
-                  />
+                <div className="space-y-3">
+                  {/* Adresse input with dropdown */}
+                  <div className="relative flex flex-col gap-2">
+                    <Input
+                      placeholder={t("addressPlaceholder")}
+                      value={address}
+                      onFocus={() => setShowDropdown(true)}
+                      onBlur={() =>
+                        setTimeout(() => setShowDropdown(false), 200)
+                      }
+                      onChange={(e) => setAddress(e.target.value)}
+                    />
 
-                  {showDropdown && (
-                    <ul className="absolute z-10 top-full left-0 w-full bg-white border rounded shadow-md">
-                      <li
-                        className="flex items-center gap-2 p-2 cursor-pointer hover:bg-gray-100"
-                        onClick={handleUseMyLocation}
-                      >
-                        {loadingLocation ? (
-                          <>
-                            <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
-                            <span>Recherche...</span>
-                          </>
-                        ) : (
-                          <>📍 {t("myPosition")}</>
-                        )}
-                      </li>
-                    </ul>
-                  )}
+                    {showDropdown && (
+                      <ul className="absolute z-10 top-full left-0 w-full bg-white border rounded shadow-md">
+                        <li
+                          className="flex items-center gap-2 p-2 cursor-pointer hover:bg-gray-100"
+                          onClick={handleUseMyLocation}
+                        >
+                          {loadingLocation ? (
+                            <>
+                              <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
+                              <span>Recherche...</span>
+                            </>
+                          ) : (
+                            <>📍 {t("myPosition")}</>
+                          )}
+                        </li>
+                      </ul>
+                    )}
+                  </div>
+
+                  {/* Service dropdown */}
+                  <Select>
+                    <SelectTrigger>
+                      <SelectValue placeholder={t("servicePlaceholder")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {serviceOptions.map((s) => (
+                        <SelectItem key={s.id} value={s.id}>
+                          {s.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
-
-                {/* Service dropdown */}
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder={t("servicePlaceholder")} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {serviceOptions.map((s) => (
-                      <SelectItem key={s.id} value={s.id}>
-                        {s.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
               </CardContent>
             </Card>
           </TabsContent>
