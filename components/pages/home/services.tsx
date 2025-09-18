@@ -5,7 +5,6 @@ import Image from "next/image";
 const Services = async () => {
   const data = await fetch("http://74.50.97.6:8080/api/categories/");
   const categories = await data.json();
-  console.log(categories);
 
   return (
     <section className="container mx-auto my-10 p-6 text-center">

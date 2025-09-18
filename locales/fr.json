@@ -55,6 +55,70 @@
       "furniture": "Montage meuble"
     }
   },
+  "solutions": {
+    "title": "Une application, toutes vos solutions",
+    "cards": [
+      {
+        "img": "/images/plumber.svg",
+        "title": "Fuite ou évier bouché ?",
+        "desc": "Fuite ou évier bouché ? un Plombier qualifié intervient rapidement chez vous"
+      },
+      {
+        "img": "/images/mechanic.svg",
+        "title": "Votre véhicule est en panne ?",
+        "desc": "Votre véhicule est en panne ? un mécanicien se déplace pour dépannage et réparation chez vous"
+      },
+      {
+        "img": "/images/electrician.svg",
+        "title": "Électricien à domicile",
+        "desc": "Électricien à domicile pour installation, réparation et dépannage rapide en toute sécurité"
+      },
+      {
+        "img": "/images/cleaning.svg",
+        "title": "Une femme de ménage fiable",
+        "desc": "Une femme de ménage fiable pour un nettoyage de votre maison ou appartement"
+      },
+      {
+        "img": "/images/moving.svg",
+        "title": "Déménagez sans effort",
+        "desc": "Déménagez sans effort avec des pros du transport de meubles et cartons"
+      },
+      {
+        "img": "/images/electrician2.svg",
+        "title": "Électricien à domicile",
+        "desc": "Électricien à domicile pour installation, réparation et dépannage rapide en toute sécurité"
+      }
+    ]
+  },
+  "how-it-works": {
+    "title": "Une application, toutes vos solutions",
+    "cards": [
+      {
+        "id": 1,
+        "title": "Choisissez un service",
+        "description": "Explorez Come2me service : ménage, peinture, travaux, garde d'enfant et bien plus encore !",
+        "image": "/images/service.svg"
+      },
+      {
+        "id": 2,
+        "title": "Planifiez votre demande",
+        "description": "Choisissez la durée, date et l'heure de la prestation",
+        "image": "/images/service.svg"
+      },
+      {
+        "id": 3,
+        "title": "Saisissez l'emplacement et le numéro de téléphone",
+        "description": "Vous pouvez renseigner vos informations ou celle d'un proche",
+        "image": "/images/service.svg"
+      },
+      {
+        "id": 4,
+        "title": "Choisissez parmi les offres",
+        "description": "Cela peut être votre contact ou celui d'un proche",
+        "image": "/images/service.svg"
+      }
+    ]
+  },
   "footer": {
     "columns": [
       {
