@@ -7,4 +7,5 @@ export { default as Solutions } from "./solutions";
 export { default as HowItWorks } from "./how-it-works";
 export { default as DownloadApp } from "./download-app";
 export { default as Features } from "./features";
+export { default as Advantages } from "./avantages";
 export default Partner;

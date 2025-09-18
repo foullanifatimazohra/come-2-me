@@ -6,6 +6,7 @@ import Partner, {
   DownloadApp,
   Features,
   FaqSection,
+  Advantages,
 } from "@/components/pages/home";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <HowItWorks />
       <DownloadApp />
       <Features />
+      <Advantages />
       <Partner />
       <FaqSection />
     </>
