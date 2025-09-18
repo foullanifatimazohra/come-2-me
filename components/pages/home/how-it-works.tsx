@@ -12,7 +12,7 @@ export default function HowItWorks() {
   return (
     <section className="w-full bg-white py-12">
       <h2 className="heading-1 text-center font-bold mb-20">{t("title")}</h2>
-      <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
+      <div className="container mx-auto max-lg:px-6 grid lg:grid-cols-2  gap-8 items-center">
         {/* Left side - steps */}
         <div className="flex flex-col gap-4 justify-center">
           {cards.length > 0 &&

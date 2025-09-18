@@ -17,7 +17,7 @@ export default async function DownloadApp() {
         {t("title")}
       </h2>
 
-      <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center text-white">
+      <div className="container mx-auto max-lg:px-6 grid lg:grid-cols-2 gap-12 items-center text-white">
         {cards.length > 0 &&
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           cards.map((card: any) =>
@@ -25,7 +25,7 @@ export default async function DownloadApp() {
               // 🔹 Static QR card
               <div
                 key={card.id}
-                className="bg-white text-[#171A1F] p-8 flex items-start justify-between gap-8"
+                className="bg-white text-[#171A1F] p-8 flex max-md:flex-col items-start justify-between gap-8"
               >
                 <Image
                   src={card.image}
@@ -47,7 +47,7 @@ export default async function DownloadApp() {
               // 🔹 Hover QR card
               <HoverCard key={card.id}>
                 <HoverCardTrigger asChild>
-                  <div className="bg-white text-[#171A1F] p-8 flex items-start justify-between gap-8 h-full cursor-pointer">
+                  <div className="bg-white text-[#171A1F] p-8 flex max-md:flex-col items-start justify-between gap-8 h-full cursor-pointer">
                     <Image
                       src={card.image}
                       alt={card.title}

@@ -139,6 +139,99 @@
       }
     ]
   },
+  "faq": {
+    "title": "Questions fréquentes (FAQ)",
+    "items": [
+      {
+        "question": "Puis-je commander un prestataire le jour même ?",
+        "answer": "Pour certain service, vous pouvez demander une prestation le jour même.\nUn professionnel vous fera son offre au plus vite."
+      },
+      {
+        "question": "Comment bénéficier de l'offre parrainage",
+        "answer": "Rendez-vous dans votre espace personnel pour obtenir votre code de parrainage et le partager avec vos proches."
+      },
+      {
+        "question": "Comment contacter le service client Come2me ?",
+        "answer": "Vous pouvez nous contacter via l’application, par email ou via notre numéro de support disponible 7j/7."
+      },
+      {
+        "question": "Comment puis-je signaler un problème avec ma commande ?",
+        "answer": "Allez dans la section 'Mes commandes', choisissez la commande concernée et cliquez sur 'Signaler un problème'."
+      }
+    ]
+  },
+  "features": {
+    "title": "Nouveauté sur Come2me",
+    "cards": [
+      {
+        "title": "Nouveauté garde d'enfants",
+        "description": "Réservez l’assistante maternelle ou baby-sitter idéale.",
+        "button": "Découvrir",
+        "image": "/images/childcare.svg",
+        "bg": "bg-[#FBE0E8]"
+      },
+      {
+        "title": "Nouveauté coiffure & beauté",
+        "description": "Un mariage ? Une soirée ? Ou juste pour prendre soin de vous ? Réservez une pro de la beauté !",
+        "button": "Découvrir",
+        "image": "/images/beauty.svg",
+        "bg": "bg-[#FFF9EA]"
+      },
+      {
+        "title": "Nouveauté coursier",
+        "description": "Un coursier rapide et fiable pour livrer ou récupérer vos colis, documents et même palettes.",
+        "button": "Découvrir",
+        "image": "/images/courier.svg",
+        "bg": "bg-[#F2F2FD]"
+      },
+      {
+        "title": "Commande des services, des courses et des repas pour tes proches en Algérie 🇩🇿",
+        "description": "",
+        "button": "Commande",
+        "bg": "bg-[#F8F9FA]"
+      }
+    ]
+  },
+  "partner": {
+    "title": "Envie d’augmenter vos revenus, devenez Partner !",
+    "cards": [
+      {
+        "id": 1,
+        "title": "Rejoignez-nous et boostez vos revenus !",
+        "subtitle": "Scannez pour télécharger",
+        "image": "/images/testimonials.svg",
+        "bg": "bg-[#F5F5F5]"
+      },
+      {
+        "id": 2,
+        "title": "Télécharger l’application Come2me Partner",
+        "subtitle": "Scannez pour télécharger",
+        "image": "/images/qr-code.svg"
+      }
+    ]
+  },
+  "advantages": {
+    "title": "Les avantages de Come2me",
+    "subtitle": "Téléchargez l’appli et simplifiez-vous la vie !",
+    "items": [
+      {
+        "title": "Une plateforme sécurisée",
+        "description": "Paiements sécurisés\nLes artisans sont tous vérifiés"
+      },
+      {
+        "title": "Rapide & simple",
+        "description": "Planifiez, décrivez et réservez un professionnel en quelques clics"
+      },
+      {
+        "title": "Offres et promos",
+        "description": "Venez découvrir les promos"
+      },
+      {
+        "title": "Vos besoins, votre budget",
+        "description": "Choisissez les professionnels et tarifs qui vous conviennent."
+      }
+    ]
+  },
   "footer": {
     "columns": [
       {
