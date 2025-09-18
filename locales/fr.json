@@ -91,7 +91,7 @@
     ]
   },
   "how-it-works": {
-    "title": "Une application, toutes vos solutions",
+    "title": "Comment ça marche ",
     "cards": [
       {
         "id": 1,
@@ -116,6 +116,26 @@
         "title": "Choisissez parmi les offres",
         "description": "Cela peut être votre contact ou celui d'un proche",
         "image": "/images/service.svg"
+      }
+    ]
+  },
+  "download-app": {
+    "title": "C'est plus simple sur l'application, téléchargez la !",
+    "cards": [
+      {
+        "id": 1,
+        "title": "Télécharger l'application Come2me",
+        "subtitle": "Scannez pour télécharger",
+        "image": "/images/qr-code.svg",
+        "type": "static"
+      },
+      {
+        "id": 2,
+        "title": "Inscrivez-vous en tant que partner",
+        "subtitle": "Scannez pour télécharger",
+        "image": "/images/come-logo.svg",
+        "hoverImage": "/images/qr-code.svg",
+        "type": "hover"
       }
     ]
   },
