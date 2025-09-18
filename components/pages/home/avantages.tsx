@@ -14,7 +14,10 @@ export default async function Advantages() {
             <h2 className="heading-1 font-bold">{t("title")}</h2>
             <p className="text-lg font-semibold">{t("subtitle")}</p>
           </div>
-          <Button variant="outline" className="lg:absolute right-20">
+          <Button
+            variant="outline"
+            className="lg:absolute right-20 rtl:left-20 rtl:right-auto"
+          >
             {t("button")} <ArrowRight className="rtl:rotate-180" />
           </Button>
         </div>
