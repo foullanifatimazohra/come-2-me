@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
@@ -15,19 +16,35 @@ import {
 import Image from "next/image";
 import { Loader2 } from "lucide-react"; // spinner icon
 
-const serviceOptions = [
-  { id: "cleaning", label: "Ménage" },
-  { id: "repair", label: "Travaux & réparation" },
-  { id: "electricity", label: "Électricité" },
-  { id: "carwash", label: "Lavage auto" },
-  { id: "moving", label: "Déménagement" },
-];
-
 export default function Main() {
   const t = useTranslations("homeServices");
   const [address, setAddress] = useState("");
+  const [categories, setCategories] = useState<string[]>([]);
   const [loadingLocation, setLoadingLocation] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+
+  useEffect(() => {
+    async function fetchCategories() {
+      try {
+        const res = await fetch("/api/categories/");
+        if (!res.ok) throw new Error("Failed to fetch categories");
+        const data = await res.json();
+
+        // Transform API response into {id, label}
+        const formatted = data.map((cat: any) => ({
+          id: String(cat.id),
+          label: cat.name,
+        }));
+
+        setCategories(formatted);
+      } catch (error) {
+        console.error(error);
+      } finally {
+      }
+    }
+
+    fetchCategories();
+  }, []);
 
   // 📍 Use current geolocation
   const handleUseMyLocation = () => {
@@ -89,7 +106,7 @@ export default function Main() {
           className="max-w-[680px] px-9 py-4 main-card bg-white"
         >
           {/* ---- Tabs ---- */}
-          <TabsList className="flex flex-wrap gap-6 p-0 justify-center h-full w-full rounded-none border-b-1 border-[#BDC1CA]">
+          <TabsList className="flex rtl:flex-row-reverse flex-wrap gap-6 p-0 justify-center h-full w-full rounded-none border-b-1 border-[#BDC1CA]">
             <TabsTrigger
               value="home"
               className="data-[state=inactive]:opacity-50 data-[state=active]:border-b-2 data-[state=active]:border-b-[#1E2128] rounded-none !shadow-none h-fit"
@@ -158,11 +175,14 @@ export default function Main() {
           {/* ---- Content ---- */}
           <TabsContent value="home">
             <Card className="border-none shadow-none text-start">
-              <CardContent className="flex flex-col">
-                <h2 className="heading-2 max-w-[25ch]">{t("title")}</h2>
-                <p className="sub-heading mb-4">Home Services</p>
+              <CardContent className="flex flex-col rtl:items-end">
+                <h2 className="heading-2 ltr:max-w-[25ch]">{t("title")}</h2>
+                <p className="sub-heading mb-4">
+                  {" "}
+                  <p>{t("tabs.home")}</p>
+                </p>
 
-                <div className="space-y-3">
+                <div className="space-y-3 w-full">
                   {/* Adresse input with dropdown */}
                   <div className="relative flex flex-col gap-2">
                     <Input
@@ -195,16 +215,17 @@ export default function Main() {
                   </div>
 
                   {/* Service dropdown */}
-                  <Select>
+                  <Select disabled={!address}>
                     <SelectTrigger>
                       <SelectValue placeholder={t("servicePlaceholder")} />
                     </SelectTrigger>
                     <SelectContent>
-                      {serviceOptions.map((s) => (
-                        <SelectItem key={s.id} value={s.id}>
-                          {s.label}
-                        </SelectItem>
-                      ))}
+                      {categories.length > 0 &&
+                        categories.map((s: any) => (
+                          <SelectItem key={s.id} value={s.id}>
+                            {s.label}
+                          </SelectItem>
+                        ))}
                     </SelectContent>
                   </Select>
                 </div>

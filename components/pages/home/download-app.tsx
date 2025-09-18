@@ -25,7 +25,7 @@ export default async function DownloadApp() {
               // 🔹 Static QR card
               <div
                 key={card.id}
-                className="bg-white text-[#171A1F] p-8 flex max-md:flex-col items-start justify-between gap-8"
+                className="bg-white text-[#171A1F] p-8 flex max-md:flex-col items-start gap-8"
               >
                 <Image
                   src={card.image}
@@ -39,7 +39,7 @@ export default async function DownloadApp() {
                   </h3>
                   <div className="flex justify-between">
                     <p className="text-lg font-semibold">{card.subtitle}</p>
-                    <ArrowRight />
+                    <ArrowRight className="rtl:rotate-180" />
                   </div>
                 </div>
               </div>
@@ -47,7 +47,7 @@ export default async function DownloadApp() {
               // 🔹 Hover QR card
               <HoverCard key={card.id}>
                 <HoverCardTrigger asChild>
-                  <div className="bg-white text-[#171A1F] p-8 flex max-md:flex-col items-start justify-between gap-8 h-full cursor-pointer">
+                  <div className="bg-white text-[#171A1F] p-8 flex max-md:flex-col items-start max-md;justify-between gap-8 h-full cursor-pointer">
                     <Image
                       src={card.image}
                       alt={card.title}
@@ -60,7 +60,7 @@ export default async function DownloadApp() {
                       </h3>
                       <div className="flex justify-between">
                         <p className="text-lg font-semibold">{card.subtitle}</p>
-                        <ArrowRight />
+                        <ArrowRight className="rtl:rotate-180" />
                       </div>
                     </div>
                   </div>

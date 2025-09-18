@@ -1,5 +1,282 @@
 {
   "home": {
-    "title": "Accueil"
+    "title": "Home"
+  },
+  "header": {
+    "logo": "/logo.svg",
+    "navigation": [
+      {
+        "label": "Services",
+        "href": "/",
+        "children": [
+          { "label": "Home Services", "href": "/" },
+          { "label": "Driver", "href": "#" },
+          { "label": "Market", "href": "#" },
+          { "label": "Food", "href": "#" }
+        ]
+      },
+      { "label": "Partner", "href": "#about" },
+      { "label": "About", "href": "#services" },
+      { "label": "For Business", "href": "#partners" }
+    ],
+    "cta": "Sign in",
+    "singnUp": "Sign up"
+  },
+  "homeServices": {
+    "tabs": {
+      "home": "Home Services",
+      "driver": "Driver",
+      "market": "Market",
+      "food": "Food"
+    },
+    "title": "Order a home service",
+    "addressPlaceholder": "Enter your address",
+    "servicePlaceholder": "Search for a service",
+    "myPosition": "My location",
+    "categoriesTitle": "Make life easier with Come2me",
+    "categoriesSubtitle": "Click, schedule, and describe your request!",
+    "services": {
+      "cleaning": "Cleaning",
+      "repair": "Work & Repairs",
+      "electricity": "Electricity",
+      "carwash": "Car Wash",
+      "moving": "Moving",
+      "it": "IT Support",
+      "mechanic": "Mechanic",
+      "school": "Tutoring",
+      "gardening": "Gardening",
+      "painting": "Painting",
+      "babysitting": "Babysitting",
+      "beauty": "Hair & Beauty",
+      "plumbing": "Plumbing",
+      "gas": "Gas Emergency",
+      "coach": "Fitness Coach",
+      "heating": "Heating",
+      "furniture": "Furniture Assembly"
+    }
+  },
+  "services": {
+    "title": "Make your life easier with Come2me",
+    "description": "Click, schedule, and describe your request!"
+  },
+  "solutions": {
+    "title": "One app, all your solutions",
+    "cards": [
+      {
+        "img": "/images/plumber.svg",
+        "title": "Leak or clogged sink?",
+        "desc": "Leak or clogged sink? A qualified plumber quickly comes to your home."
+      },
+      {
+        "img": "/images/mechanic.svg",
+        "title": "Your vehicle broke down?",
+        "desc": "Your vehicle broke down? A mechanic comes to repair and assist you at home."
+      },
+      {
+        "img": "/images/electrician.svg",
+        "title": "Electrician at home",
+        "desc": "Home electrician for installation, repair, and quick, safe troubleshooting."
+      },
+      {
+        "img": "/images/cleaning.svg",
+        "title": "A reliable cleaner",
+        "desc": "A reliable cleaner for your house or apartment cleaning."
+      },
+      {
+        "img": "/images/moving.svg",
+        "title": "Move effortlessly",
+        "desc": "Move effortlessly with pros handling your furniture and boxes."
+      },
+      {
+        "img": "/images/electrician2.svg",
+        "title": "Electrician at home",
+        "desc": "Home electrician for installation, repair, and quick, safe troubleshooting."
+      }
+    ]
+  },
+  "how-it-works": {
+    "title": "How it works",
+    "cards": [
+      {
+        "id": 1,
+        "title": "Choose a service",
+        "description": "Explore Come2me services: cleaning, painting, repairs, babysitting, and much more!",
+        "image": "/images/service.svg"
+      },
+      {
+        "id": 2,
+        "title": "Schedule your request",
+        "description": "Choose the duration, date, and time of the service.",
+        "image": "/images/service.svg"
+      },
+      {
+        "id": 3,
+        "title": "Enter location and phone number",
+        "description": "You can provide your details or those of a relative.",
+        "image": "/images/service.svg"
+      },
+      {
+        "id": 4,
+        "title": "Choose from offers",
+        "description": "It can be your contact or that of a relative.",
+        "image": "/images/service.svg"
+      }
+    ]
+  },
+  "download-app": {
+    "title": "It’s easier on the app, download it!",
+    "cards": [
+      {
+        "id": 1,
+        "title": "Download the Come2me app",
+        "subtitle": "Scan to download",
+        "image": "/images/qr-code.svg",
+        "type": "static"
+      },
+      {
+        "id": 2,
+        "title": "Sign up as a Partner",
+        "subtitle": "Scan to download",
+        "image": "/images/come-logo.svg",
+        "hoverImage": "/images/qr-code.svg",
+        "type": "hover"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions (FAQ)",
+    "items": [
+      {
+        "question": "Can I book a provider for the same day?",
+        "answer": "For certain services, you can request same-day service.\nA professional will send you an offer as soon as possible."
+      },
+      {
+        "question": "How to benefit from the referral offer?",
+        "answer": "Go to your personal space to get your referral code and share it with your loved ones."
+      },
+      {
+        "question": "How to contact Come2me customer support?",
+        "answer": "You can contact us via the app, by email, or through our support number available 7/7."
+      },
+      {
+        "question": "How can I report a problem with my order?",
+        "answer": "Go to the 'My Orders' section, select the order concerned, and click 'Report a problem'."
+      }
+    ]
+  },
+  "features": {
+    "title": "New on Come2me",
+    "cards": [
+      {
+        "title": "New babysitting service",
+        "description": "Book the ideal nanny or babysitter.",
+        "button": "Discover",
+        "image": "/images/childcare.svg",
+        "bg": "bg-[#FBE0E8]"
+      },
+      {
+        "title": "New hair & beauty",
+        "description": "A wedding? A party? Or just some self-care? Book a beauty professional!",
+        "button": "Discover",
+        "image": "/images/beauty.svg",
+        "bg": "bg-[#FFF9EA]"
+      },
+      {
+        "title": "New courier service",
+        "description": "A fast and reliable courier for delivering or picking up parcels, documents, and even pallets.",
+        "button": "Discover",
+        "image": "/images/courier.svg",
+        "bg": "bg-[#F2F2FD]"
+      },
+      {
+        "title": "Order services, groceries, and meals for your loved ones in Algeria 🇩🇿",
+        "description": "",
+        "button": "Order",
+        "bg": "bg-[#F8F9FA]"
+      }
+    ]
+  },
+  "partner": {
+    "title": "Want to increase your income? Become a Partner!",
+    "cards": [
+      {
+        "id": 1,
+        "title": "Join us and boost your income!",
+        "subtitle": "Scan to download",
+        "image": "/images/testimonials.svg",
+        "bg": "bg-[#F5F5F5]"
+      },
+      {
+        "id": 2,
+        "title": "Download the Come2me Partner app",
+        "subtitle": "Scan to download",
+        "image": "/images/qr-code.svg"
+      }
+    ]
+  },
+  "advantages": {
+    "title": "The advantages of Come2me",
+    "subtitle": "Download the app and make life easier!",
+    "items": [
+      {
+        "title": "A secure platform",
+        "description": "Secure payments\nAll providers are verified"
+      },
+      {
+        "title": "Fast & simple",
+        "description": "Schedule, describe, and book a professional in just a few clicks."
+      },
+      {
+        "title": "Offers and discounts",
+        "description": "Come and discover the promotions."
+      },
+      {
+        "title": "Your needs, your budget",
+        "description": "Choose the professionals and prices that suit you."
+      }
+    ]
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Company",
+        "links": [
+          { "label": "News", "href": "/news" },
+          { "label": "Our Services", "href": "/services" },
+          { "label": "About", "href": "/about" },
+          { "label": "Help & Contact", "href": "/contact" },
+          { "label": "Terms & Conditions", "href": "/terms" },
+          { "label": "Privacy Policy", "href": "/privacy" }
+        ]
+      },
+      {
+        "title": "Services",
+        "links": [
+          { "label": "Home Services", "href": "/services/home" },
+          { "label": "Driver", "href": "/services/driver" },
+          { "label": "Food", "href": "/services/food" },
+          { "label": "Market", "href": "/services/market" }
+        ]
+      },
+      {
+        "title": "Partner",
+        "links": [{ "label": "Become a Partner", "href": "/partner" }]
+      },
+      {
+        "title": "Business",
+        "links": [{ "label": "Come2me Pro", "href": "/pro" }]
+      }
+    ],
+    "social": {
+      "facebook": "https://facebook.com",
+      "instagram": "https://instagram.com",
+      "tiktok": "https://tiktok.com",
+      "youtube": "https://youtube.com"
+    },
+    "bottom": {
+      "copyright": "© 2025 Come2me Technologies Inc."
+    },
+    "language": "English",
+    "country": "Algeria"
   }
 }

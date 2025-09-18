@@ -23,7 +23,7 @@ export default function Solutions() {
       <div className="flex items-center justify-between px-6 md:px-12">
         <h2 className="heading-1 font-bold text-center w-full">{t("title")}</h2>
         <button onClick={handleScroll} className="transition">
-          <ArrowRight />
+          <ArrowRight className="rtl:rotate-180" />
         </button>
       </div>
 
@@ -48,7 +48,7 @@ export default function Solutions() {
                 <p className="text-base leading-[28px] mt-2 font-semibold md:max-w-[20ch]">
                   {item.desc}
                 </p>
-                <ArrowRight />
+                <ArrowRight className="rtl:rotate-180" />
               </div>
             </div>
           ))}

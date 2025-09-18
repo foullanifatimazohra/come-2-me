@@ -28,7 +28,7 @@ export default async function Features() {
                   </p>
                 )}
                 <Button variant="outline" className="mt-4 border-none">
-                  {item.button} →
+                  {item.button} <ArrowRight className="rtl:rotate-180" />
                 </Button>
               </CardContent>
 
@@ -78,7 +78,7 @@ export async function Partner() {
                 </h3>
                 <div className="flex justify-between items-center">
                   <p className="text-lg font-semibold">{card.subtitle}</p>
-                  <ArrowRight className="w-6 h-6" />
+                  <ArrowRight className="w-6 h-6 rtl:rotate-180" />
                 </div>
               </div>
             </div>

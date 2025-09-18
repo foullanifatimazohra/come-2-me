@@ -55,6 +55,10 @@
       "furniture": "Montage meuble"
     }
   },
+  "services": {
+    "title": "Simplifiez vous la vie avec Come2me",
+    "description": "Cliquez, planifiez et décrivez votre demande !"
+  },
   "solutions": {
     "title": "Une application, toutes vos solutions",
     "cards": [
