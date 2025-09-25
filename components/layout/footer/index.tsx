@@ -30,10 +30,10 @@ const Footer = () => {
           {/* Columns from translations */}
           {t.raw("columns").map((col: any, idx: number) => (
             <div key={idx}>
-              <h3 className="font-semibold text-center text-[22px] mb-4">
+              <h3 className="font-semibold text-start text-[22px] mb-4">
                 {col.title}
               </h3>
-              <ul className="space-y-2 text-center text-sm text-gray-700">
+              <ul className="space-y-2 text-start text-sm text-gray-700">
                 {col.links.map((link: any, i: number) => (
                   <li key={i}>
                     <Link
@@ -128,7 +128,7 @@ const Footer = () => {
                   />
                 </svg>
 
-                <span className="">{languages[locale]?.name}</span>
+                <span className="">{locale.toUpperCase()}</span>
               </Button>
               <Button className="flex gap-2">
                 <Image
@@ -137,7 +137,7 @@ const Footer = () => {
                   width={22}
                   height={22}
                 />
-                {t("country")}
+                DZ
               </Button>
             </div>
           </div>

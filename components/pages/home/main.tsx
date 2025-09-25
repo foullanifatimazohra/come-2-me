@@ -100,7 +100,7 @@ export default function Main() {
 
   return (
     <main className="relative h-fit lg:h-screen">
-      <div className="container px-6 lg:mx-auto z-10 lg:pt-50 pt-30">
+      <div className="container mx-auto max-lg:px-6 z-10 lg:pt-50 pt-30">
         <Tabs
           defaultValue="home"
           className="max-w-[680px] px-9 py-4 main-card bg-white"
@@ -115,9 +115,9 @@ export default function Main() {
                 <Image
                   src="/images/home.png"
                   alt="Home"
-                  width={80}
-                  height={80}
-                  className="h-20 w-20"
+                  width={90}
+                  height={90}
+                  className="h-22 w-22"
                 />
                 <p>{t("tabs.home")}</p>
               </div>
@@ -131,9 +131,9 @@ export default function Main() {
                 <Image
                   src="/images/driver.png"
                   alt="Driver"
-                  width={80}
-                  height={80}
-                  className="h-20 w-20 "
+                  width={88}
+                  height={65}
+                  className="w-22 h-16"
                 />
                 <p>{t("tabs.driver")}</p>
               </div>
@@ -147,9 +147,9 @@ export default function Main() {
                 <Image
                   src="/images/market.png"
                   alt="Market"
-                  width={80}
-                  height={80}
-                  className="h-20 w-20 "
+                  width={75}
+                  height={75}
+                  className="h-19 w-19 "
                 />
                 <p>{t("tabs.market")}</p>
               </div>
@@ -163,9 +163,9 @@ export default function Main() {
                 <Image
                   src="/images/food.png"
                   alt="Food"
-                  width={80}
-                  height={80}
-                  className="h-20 w-20"
+                  width={88}
+                  height={88}
+                  className="h-22 w-22"
                 />
                 <p>{t("tabs.food")}</p>
               </div>

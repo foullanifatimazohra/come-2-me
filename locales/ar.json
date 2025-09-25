@@ -24,10 +24,10 @@
   },
   "homeServices": {
     "tabs": {
-      "home": "خدمات منزلية",
-      "driver": "سائق",
-      "market": "السوق",
-      "food": "طعام"
+      "home": "Home Services",
+      "driver": "DRIVER",
+      "market": "MARKET",
+      "food": "FOOD"
     },
     "title": "اطلب خدمة منزلية",
     "addressPlaceholder": "أدخل عنوانك",

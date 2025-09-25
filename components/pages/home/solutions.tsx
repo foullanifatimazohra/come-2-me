@@ -30,7 +30,7 @@ export default function Solutions() {
       {/* Scrollable Cards */}
       <div
         ref={scrollRef}
-        className="mt-8 flex gap-20 overflow-x-auto px-6 md:px-12 no-scrollbar scroll-smooth"
+        className="mt-8 flex gap-20 overflow-x-auto px-6 md:px-20 no-scrollbar scroll-smooth"
       >
         {solutions.length > 0 &&
           // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -25,9 +25,9 @@
   "homeServices": {
     "tabs": {
       "home": "Home Services",
-      "driver": "Driver",
-      "market": "Market",
-      "food": "Food"
+      "driver": "DRIVER",
+      "market": "MARKET",
+      "food": "FOOD"
     },
     "title": "Order a home service",
     "addressPlaceholder": "Enter your address",

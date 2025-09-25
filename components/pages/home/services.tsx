@@ -11,7 +11,7 @@ const Services = async () => {
   const categories = await data.json();
 
   return (
-    <section className="container mx-auto my-10 p-6 text-center">
+    <section className="container mx-auto max-lg:px-6 my-10 text-center">
       <h2 className="heading-1">{t("title")}</h2>
       <p className="sub-heading italic">{t("description")}</p>
 

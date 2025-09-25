@@ -65,7 +65,7 @@ export const LanguageSwitcher = () => {
           />
         </svg>
 
-        <span className="">{languages[locale]?.name}</span>
+        <span className="">{locale.toUpperCase()}</span>
       </Button>
 
       {/* Accordion style on mobile / Dropdown style on desktop */}
