@@ -15,19 +15,53 @@
           { "label": "Food", "href": "#" }
         ]
       },
-      { "label": "Partner", "href": "#about" },
-      { "label": "à propos", "href": "#services" },
-      { "label": "For Business", "href": "#partners" }
+      {
+        "label": "Partner",
+        "href": "#about",
+        "children": [
+          { "label": "Aide à domicile", "href": "#" },
+          { "label": "Driver", "href": "#" },
+          { "label": "Coursier", "href": "#" },
+          { "label": "Restaurateur", "href": "#" },
+          { "label": "Boutique", "href": "#" }
+        ]
+      },
+      {
+        "label": "à propos",
+        "href": "#services",
+        "children": [
+          { "label": "à propos de nous", "href": "#" },
+          { "label": "Actualités", "href": "#" },
+          { "label": "Nos services", "href": "#" },
+          { "label": "Comment ça marche ?", "href": "#" },
+          { "label": "Blogs", "href": "#" },
+          { "label": "Offres d’emploi", "href": "#" },
+          { "label": "Politique de confidentialité", "href": "#" },
+          { "label": "Conditions générales", "href": "#" },
+          { "label": "Aide & contact", "href": "#" }
+        ]
+      },
+      {
+        "label": "For Business",
+        "href": "#partners",
+        "children": [
+          { "label": "Nos Solutions Business", "href": "#" },
+          { "label": "Actualités", "href": "#" },
+          { "label": "Nos services", "href": "#" },
+          { "label": "Comment ça marche ?", "href": "#" },
+          { "label": "Assistance Business", "href": "#" }
+        ]
+      }
     ],
     "cta": "Se connecter",
-    "singnUp": "S'inscrire"
+    "signUp": "S'inscrire"
   },
   "homeServices": {
     "tabs": {
-      "home": "Services à domicile",
-      "driver": "Chauffeur",
-      "market": "Marché",
-      "food": "Restauration"
+      "home": "Home Services",
+      "driver": "DRIVER",
+      "market": "MARKET",
+      "food": "FOOD"
     },
     "title": "Commander un service à domicile",
     "addressPlaceholder": "Entrez votre adresse",

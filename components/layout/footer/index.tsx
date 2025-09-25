@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-white border-t border-gray-200">
-      <div className="container mx-auto px-6 py-12">
+      <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2">
           {/* Logo */}
           <div className="col-span-1 flex flex-col items-start">
@@ -30,10 +30,10 @@ const Footer = () => {
           {/* Columns from translations */}
           {t.raw("columns").map((col: any, idx: number) => (
             <div key={idx}>
-              <h3 className="font-semibold text-center text-[22px] mb-4">
+              <h3 className="font-semibold text-start text-[22px] mb-4">
                 {col.title}
               </h3>
-              <ul className="space-y-2 text-center text-sm text-gray-700">
+              <ul className="space-y-2 text-start text-sm text-gray-700">
                 {col.links.map((link: any, i: number) => (
                   <li key={i}>
                     <Link
@@ -50,6 +50,43 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
+        {/* Social Media */}
+        <div className="flex gap-4 items-center justify-end mt-4">
+          <Link href={t("social.facebook")}>
+            <Image
+              src="/images/facebook.svg"
+              alt="Facebook"
+              width={34}
+              height={34}
+            />
+          </Link>
+          <Link href={t("social.instagram")}>
+            <Image
+              src="/images/instagram.svg"
+              alt="Instagram"
+              width={39}
+              height={39}
+            />
+          </Link>
+          <Link href={t("social.tiktok")}>
+            <Image
+              src="/images/tiktok.svg"
+              alt="TikTok"
+              className="object-fill"
+              width={34}
+              height={34}
+            />
+          </Link>
+          <Link href={t("social.youtube")}>
+            <Image
+              src="/images/youtube.svg"
+              alt="YouTube"
+              className="object-cover"
+              width={42}
+              height={42}
+            />
+          </Link>
+        </div>
         <div className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* App Stores */}
           <div className="flex gap-4">
@@ -57,59 +94,22 @@ const Footer = () => {
               <Image
                 src="/google-play.svg"
                 alt="Google Play"
-                width={140}
-                height={45}
+                width={206}
+                height={61}
               />
             </Link>
             <Link href="#">
               <Image
                 src="/app-store.svg"
                 alt="App Store"
-                width={140}
-                height={45}
+                width={206}
+                height={61}
               />
             </Link>
           </div>
           <div className="space-y-5 flex flex-col items-center">
-            {/* Social Media */}
-            <div className="flex gap-4 items-center">
-              <Link href={t("social.facebook")}>
-                <Image
-                  src="/images/facebook.svg"
-                  alt="Facebook"
-                  width={34}
-                  height={34}
-                />
-              </Link>
-              <Link href={t("social.instagram")}>
-                <Image
-                  src="/images/instagram.svg"
-                  alt="Instagram"
-                  width={39}
-                  height={39}
-                />
-              </Link>
-              <Link href={t("social.tiktok")}>
-                <Image
-                  src="/images/tiktok.svg"
-                  alt="TikTok"
-                  className="object-fill"
-                  width={34}
-                  height={34}
-                />
-              </Link>
-              <Link href={t("social.youtube")}>
-                <Image
-                  src="/images/youtube.svg"
-                  alt="YouTube"
-                  className="object-cover"
-                  width={42}
-                  height={42}
-                />
-              </Link>
-            </div>
             {/* Language & Country */}
-            <div className="flex gap-4">
+            <div className="flex gap-8">
               <Button
                 aria-label="Language switch"
                 size="default"
@@ -128,7 +128,7 @@ const Footer = () => {
                   />
                 </svg>
 
-                <span className="">{languages[locale]?.name}</span>
+                <span className="">{locale.toUpperCase()}</span>
               </Button>
               <Button className="flex gap-2">
                 <Image
@@ -137,7 +137,7 @@ const Footer = () => {
                   width={22}
                   height={22}
                 />
-                {t("country")}
+                DZ
               </Button>
             </div>
           </div>

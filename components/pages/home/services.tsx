@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Card, CardContent } from "@/components/ui/card";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
@@ -8,16 +7,17 @@ const Services = async () => {
   const data = await fetch("http://74.50.97.6:8080/api/categories", {
     method: "GET",
   });
-  const categories = await data.json();
+  const dataCat = await data.json();
 
   return (
-    <section className="container mx-auto my-10 p-6 text-center">
+    <section className="section-container my-22 text-center">
+      <p className="text-2xl font-semibold">Nos Catégories de Services</p>
       <h2 className="heading-1">{t("title")}</h2>
       <p className="sub-heading italic">{t("description")}</p>
 
-      <div className="my-20 flex flex-wrap gap-6 justify-center">
-        {categories.length > 0 &&
-          categories.map((category: any) => (
+      <div className="mt-14 flex flex-wrap gap-[32px] items-center justify-center">
+        {dataCat.length > 0 &&
+          dataCat.map((category: any) => (
             <ServiceCard key={category.id} category={category} />
           ))}
       </div>
@@ -27,18 +27,16 @@ const Services = async () => {
 
 const ServiceCard = ({ category }: { category: any }) => {
   return (
-    <Card className="px-3 py-4 w-[150px] card-shadow border-[#DEE1E6] rounded-lg relative">
-      <CardContent className="flex flex-col items-center gap-1">
-        <Image
-          src={category?.icon}
-          alt={category?.name}
-          width={80}
-          height={80}
-          className="w-20 h-20"
-        />
-        <p className="font-medium ">{category?.name}</p>
-      </CardContent>
-    </Card>
+    <div className="py-2 px-1 w-[144px] lg:h-[112px] card-shadow border border-[#F4F4F5] rounded-lg relative flex flex-col items-center justify-center gap-1">
+      <Image
+        src={category?.icon}
+        alt={category?.name}
+        width={70}
+        height={70}
+        className="w-18 h-18 object-contain"
+      />
+      <p className="font-medium text-sm">{category?.name}</p>
+    </div>
   );
 };
 

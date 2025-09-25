@@ -22,61 +22,65 @@ export function Header() {
 
   return (
     <header className="fixed top-0 w-full bg-white backdrop-blur-sm border-b border-gray-100 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-[90px] sm:h-[110px] lg:h-[124px]">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
-              <Image
-                src={t("logo")}
-                alt="Logo"
-                width={140}
-                height={70}
-                className="h-auto w-[120px] sm:w-[140px] lg:w-[160px] mr-3"
-              />
-            </Link>
+      <div className="section-container py-3">
+        <div className="flex justify-between items-center py-3">
+          <div className="flex items-center gap-x-10">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/logo-come-tome.svg"
+                  alt="Logo"
+                  width={110}
+                  height={60}
+                  className="h-auto w-[110px] mr-3"
+                />
+              </Link>
+            </div>
+
+            {/* Navigation Desktop */}
+            <nav className="hidden lg:flex relative">
+              {navigation.map((item, index) => (
+                <div key={index} className="relative">
+                  <button
+                    className={`capitalize font-semibold text-lg flex items-center py-2 px-4 rounded-md transition-colors ${
+                      openDropdown === index
+                        ? "bg-black !rounded-full !px-3 text-white"
+                        : pathname === item.href
+                        ? "font-extrabold text-[#171A1F]"
+                        : "text-[#171A1F]"
+                    }`}
+                    onClick={() =>
+                      setOpenDropdown(openDropdown === index ? null : index)
+                    }
+                  >
+                    {item.children && (
+                      <ChevronDown className="mr-[1px] h-6 w-6" />
+                    )}
+                    {item.label}
+                  </button>
+
+                  {item.children && openDropdown === index && (
+                    <div className="absolute left-0 mt-2 px-6 py-4 min-w-[260px] space-y-3 bg-[#171A1F] border rounded-lg shadow-lg">
+                      {item.children.map((child, i) => (
+                        <Link
+                          key={i}
+                          href={child.href}
+                          className={`block text-lg ${
+                            pathname === child.href
+                              ? "font-extrabold text-white"
+                              : "font-normal text-gray-200 hover:text-white"
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
           </div>
-
-          {/* Navigation Desktop */}
-          <nav className="hidden lg:flex space-x-5 relative">
-            {navigation.map((item, index) => (
-              <div key={index} className="relative">
-                <button
-                  className={`capitalize font-semibold text-lg flex items-center py-2 rounded-md transition-colors ${
-                    openDropdown === index
-                      ? "bg-black !rounded-full !py-1 !px-3 text-white"
-                      : pathname === item.href
-                      ? "font-extrabold text-[#171A1F]"
-                      : "text-[#171A1F]"
-                  }`}
-                  onClick={() =>
-                    setOpenDropdown(openDropdown === index ? null : index)
-                  }
-                >
-                  {item.children && <ChevronDown className="mr-3 h-6 w-6" />}
-                  {item.label}
-                </button>
-
-                {item.children && openDropdown === index && (
-                  <div className="absolute left-0 mt-2 px-6 py-4 min-w-[260px] space-y-3 bg-[#171A1F] border rounded-lg shadow-lg">
-                    {item.children.map((child, i) => (
-                      <Link
-                        key={i}
-                        href={child.href}
-                        className={`block text-lg ${
-                          pathname === child.href
-                            ? "font-extrabold text-white"
-                            : "font-normal text-gray-200 hover:text-white"
-                        }`}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
 
           {/* CTA Desktop */}
           <div className="hidden lg:flex gap-4 items-center">
@@ -90,7 +94,7 @@ export function Header() {
               size="default"
               variant="outline"
             >
-              {t("singnUp")}
+              {t("signUp")}
             </Button>
           </div>
 
@@ -152,7 +156,7 @@ export function Header() {
                   <LogIn />
                 </Button>
                 <Button onClick={() => setIsMenuOpen(false)} variant="outline">
-                  {t("singnUp")}
+                  {t("signUp")}
                 </Button>
               </div>
             </div>

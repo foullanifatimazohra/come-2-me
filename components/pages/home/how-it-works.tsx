@@ -10,9 +10,9 @@ export default function HowItWorks() {
   const cards = t.raw("cards") || [];
 
   return (
-    <section className="w-full bg-white py-12">
+    <section className="w-full bg-white py-22">
       <h2 className="heading-1 text-center font-bold mb-20">{t("title")}</h2>
-      <div className="container mx-auto max-lg:px-6 grid lg:grid-cols-2  gap-8 items-center">
+      <div className="section-container flex flex-col lg:flex-row gap-20 items-center justify-center">
         {/* Left side - steps */}
         <div className="flex flex-col gap-4 justify-center">
           {cards.length > 0 &&
@@ -21,14 +21,14 @@ export default function HowItWorks() {
               <div
                 key={step.id}
                 onClick={() => setActiveStep(index)}
-                className={`cursor-pointer rounded-2xl custom-shadow  py-4 px-6 transition-all ${
+                className={`cursor-pointer max-w-[580px] min-h-[112px] flex flex-col justify-center rounded-2xl custom-shadow py-4 px-6 transition-all ${
                   activeStep === index
                     ? "bg-[#171A1F] text-white"
                     : "bg-[#F3F4F6] text-[#171A1F]"
                 }`}
               >
-                <h3 className="font-semibold text-[18px]">{step.title}</h3>
-                <p className="text-base leading-relaxed font-medium">
+                <h3 className="font-semibold text-[19px]">{step.title}</h3>
+                <p className="text-base leading-relaxed font-normal">
                   {step.description}
                 </p>
               </div>

@@ -14,14 +14,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Image from "next/image";
-import { Loader2 } from "lucide-react"; // spinner icon
+import { Loader2 } from "lucide-react";
+import useGeolocationAddress from "@/hooks/useGeolocationAddress";
 
 export default function Main() {
   const t = useTranslations("homeServices");
-  const [address, setAddress] = useState("");
-  const [categories, setCategories] = useState<string[]>([]);
-  const [loadingLocation, setLoadingLocation] = useState(false);
+  const [categories, setCategories] = useState<any[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
+
+  // ✅ Use custom hook
+  const { address, error, loading, getMyLocation } = useGeolocationAddress();
 
   useEffect(() => {
     async function fetchCategories() {
@@ -45,62 +47,9 @@ export default function Main() {
 
     fetchCategories();
   }, []);
-
-  // 📍 Use current geolocation
-  const handleUseMyLocation = () => {
-    if (!navigator.geolocation) {
-      alert("La géolocalisation n’est pas supportée par votre navigateur.");
-      return;
-    }
-
-    setLoadingLocation(true);
-
-    navigator.geolocation.getCurrentPosition(
-      async (pos) => {
-        const { latitude, longitude } = pos.coords;
-
-        try {
-          const response = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`,
-            {
-              headers: {
-                "User-Agent": "ur-docto/1.0 (contact@yourapp.com)",
-              },
-            }
-          );
-
-          if (!response.ok) {
-            throw new Error("Erreur API Nominatim");
-          }
-
-          const data = await response.json();
-          console.log("Nominatim response:", data);
-
-          if (data?.display_name) {
-            setAddress(data.display_name);
-          } else {
-            setAddress("Adresse introuvable");
-          }
-        } catch (err) {
-          console.error("Erreur:", err);
-          setAddress("Erreur lors de la récupération de l’adresse");
-        } finally {
-          setLoadingLocation(false);
-          setShowDropdown(false);
-        }
-      },
-      (error) => {
-        console.error("Erreur géolocalisation:", error);
-        alert("Impossible de récupérer votre position.");
-        setLoadingLocation(false);
-        setShowDropdown(false);
-      }
-    );
-  };
-
   return (
     <main className="relative h-fit lg:h-screen">
-      <div className="container px-6 lg:mx-auto z-10 lg:pt-50 pt-30">
+      <div className="section-container z-10 lg:pt-40 pt-30">
         <Tabs
           defaultValue="home"
           className="max-w-[680px] px-9 py-4 main-card bg-white"
@@ -111,15 +60,17 @@ export default function Main() {
               value="home"
               className="data-[state=inactive]:opacity-50 data-[state=active]:border-b-2 data-[state=active]:border-b-[#1E2128] rounded-none !shadow-none h-fit"
             >
-              <div className="flex flex-col  justify-between items-center">
+              <div className="flex flex-col justify-between items-center">
                 <Image
                   src="/images/home.png"
                   alt="Home"
-                  width={80}
-                  height={80}
-                  className="h-20 w-20"
+                  width={90}
+                  height={90}
+                  className="h-22 w-22"
                 />
-                <p>{t("tabs.home")}</p>
+                <p className="text-sm font-semibold">
+                  {t("tabs.home").toUpperCase()}
+                </p>
               </div>
             </TabsTrigger>
             <TabsTrigger
@@ -131,11 +82,11 @@ export default function Main() {
                 <Image
                   src="/images/driver.png"
                   alt="Driver"
-                  width={80}
-                  height={80}
-                  className="h-20 w-20 "
+                  width={88}
+                  height={65}
+                  className="w-22 h-16"
                 />
-                <p>{t("tabs.driver")}</p>
+                <p className="text-sm font-semibold pt-4">{t("tabs.driver")}</p>
               </div>
             </TabsTrigger>
             <TabsTrigger
@@ -147,11 +98,11 @@ export default function Main() {
                 <Image
                   src="/images/market.png"
                   alt="Market"
-                  width={80}
-                  height={80}
-                  className="h-20 w-20 "
+                  width={75}
+                  height={75}
+                  className="h-19 w-19"
                 />
-                <p>{t("tabs.market")}</p>
+                <p className="text-sm font-semibold pt-1">{t("tabs.market")}</p>
               </div>
             </TabsTrigger>
             <TabsTrigger
@@ -163,11 +114,11 @@ export default function Main() {
                 <Image
                   src="/images/food.png"
                   alt="Food"
-                  width={80}
-                  height={80}
-                  className="h-20 w-20"
+                  width={88}
+                  height={88}
+                  className="h-22 w-22"
                 />
-                <p>{t("tabs.food")}</p>
+                <p className="text-sm font-semibold">{t("tabs.food")}</p>
               </div>
             </TabsTrigger>
           </TabsList>
@@ -177,31 +128,28 @@ export default function Main() {
             <Card className="border-none shadow-none text-start">
               <CardContent className="flex flex-col rtl:items-end">
                 <h2 className="heading-2 ltr:max-w-[25ch]">{t("title")}</h2>
-                <p className="sub-heading mb-4">
-                  {" "}
-                  <p>{t("tabs.home")}</p>
-                </p>
+                <p className="sub-heading mb-4">{t("tabs.home")}</p>
 
                 <div className="space-y-3 w-full">
                   {/* Adresse input with dropdown */}
                   <div className="relative flex flex-col gap-2">
                     <Input
                       placeholder={t("addressPlaceholder")}
-                      value={address}
+                      value={address ?? ""}
                       onFocus={() => setShowDropdown(true)}
-                      onBlur={() =>
-                        setTimeout(() => setShowDropdown(false), 200)
-                      }
-                      onChange={(e) => setAddress(e.target.value)}
+                      readOnly
                     />
 
-                    {showDropdown && (
+                    {showDropdown && !address && (
                       <ul className="absolute z-10 top-full left-0 w-full bg-white border rounded shadow-md">
                         <li
                           className="flex items-center gap-2 p-2 cursor-pointer hover:bg-gray-100"
-                          onClick={handleUseMyLocation}
+                          onClick={() => {
+                            getMyLocation();
+                            setShowDropdown(false);
+                          }}
                         >
-                          {loadingLocation ? (
+                          {loading ? (
                             <>
                               <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
                               <span>Recherche...</span>
@@ -212,19 +160,33 @@ export default function Main() {
                         </li>
                       </ul>
                     )}
+
+                    {error && (
+                      <p className="mt-2 text-sm text-red-500">{error}</p>
+                    )}
                   </div>
 
-                  {/* Service dropdown */}
+                  {/* Service dropdown with categories + subcategories */}
                   <Select disabled={!address}>
                     <SelectTrigger>
                       <SelectValue placeholder={t("servicePlaceholder")} />
                     </SelectTrigger>
                     <SelectContent>
                       {categories.length > 0 &&
-                        categories.map((s: any) => (
-                          <SelectItem key={s.id} value={s.id}>
-                            {s.label}
-                          </SelectItem>
+                        categories.map((cat: any) => (
+                          <div key={cat.id}>
+                            {cat.subcategories?.length > 0 ? (
+                              cat.subcategories.map((sub: any) => (
+                                <SelectItem key={sub.id} value={sub.id}>
+                                  {sub.name}
+                                </SelectItem>
+                              ))
+                            ) : (
+                              <SelectItem key={cat.id} value={cat.id}>
+                                {cat.label}
+                              </SelectItem>
+                            )}
+                          </div>
                         ))}
                     </SelectContent>
                   </Select>
@@ -236,10 +198,10 @@ export default function Main() {
       </div>
       <Image
         alt="background"
-        src="/images/home-bg.png"
+        src="/images/home-bg.jpg"
         width={1440}
         height={700}
-        className="absolute top-0 left-0 w-full h-full object-cover object-top-right z-[-1]"
+        className="absolute top-0 left-0 w-full h-full object-cover object-center z-[-1]"
       />
     </main>
   );

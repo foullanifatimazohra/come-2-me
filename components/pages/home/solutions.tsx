@@ -18,7 +18,7 @@ export default function Solutions() {
   };
 
   return (
-    <section className="w-full bg-[#171A1F] text-white py-12 relative space-y-15">
+    <section className="w-full bg-[#171A1F] text-white py-22 relative space-y-15">
       {/* Top Bar */}
       <div className="flex items-center justify-between px-6 md:px-12">
         <h2 className="heading-1 font-bold text-center w-full">{t("title")}</h2>
@@ -30,7 +30,7 @@ export default function Solutions() {
       {/* Scrollable Cards */}
       <div
         ref={scrollRef}
-        className="mt-8 flex gap-20 overflow-x-auto px-6 md:px-12 no-scrollbar scroll-smooth"
+        className="mt-8  flex gap-20 overflow-x-auto px-6 md:px-25 no-scrollbar scroll-smooth"
       >
         {solutions.length > 0 &&
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -44,8 +44,8 @@ export default function Solutions() {
                 className="object-cover w-64 h-69"
               />
 
-              <div className="py-4 w-full flex gap-1 justify-between items-center">
-                <p className="text-base leading-[28px] mt-2 font-semibold md:max-w-[20ch]">
+              <div className="py-4 w-full flex gap-1 items-center">
+                <p className="text-base leading-[28px] font-normal md:max-w-[23ch]">
                   {item.desc}
                 </p>
                 <ArrowRight className="rtl:rotate-180" />
