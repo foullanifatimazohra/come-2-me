@@ -100,7 +100,7 @@ export default function Main() {
 
   return (
     <main className="relative h-fit lg:h-screen">
-      <div className="container mx-auto max-lg:px-6 z-10 lg:pt-50 pt-30">
+      <div className="section-container z-10 lg:pt-50 pt-30">
         <Tabs
           defaultValue="home"
           className="max-w-[680px] px-9 py-4 main-card bg-white"
@@ -236,10 +236,10 @@ export default function Main() {
       </div>
       <Image
         alt="background"
-        src="/images/home-bg.png"
+        src="/images/home-bg.jpg"
         width={1440}
         height={700}
-        className="absolute top-0 left-0 w-full h-full object-cover object-top-right z-[-1]"
+        className="absolute top-0 left-0 w-full h-full object-cover object-center z-[-1]"
       />
     </main>
   );

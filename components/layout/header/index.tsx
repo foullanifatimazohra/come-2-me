@@ -22,8 +22,8 @@ export function Header() {
 
   return (
     <header className="fixed top-0 w-full bg-white backdrop-blur-sm border-b border-gray-100 z-50">
-      <div className="container mx-auto max-lg:px-6">
-        <div className="flex justify-between items-center h-[90px] sm:h-[110px] lg:h-[124px]">
+      <div className="section-container py-3">
+        <div className="flex justify-between items-center py-3">
           <div className="flex items-center gap-x-10">
             {/* Logo */}
             <div className="flex-shrink-0">
@@ -31,9 +31,9 @@ export function Header() {
                 <Image
                   src="/logo-come-tome.svg"
                   alt="Logo"
-                  width={140}
-                  height={70}
-                  className="h-auto w-[120px] sm:w-[140px] lg:w-[160px] mr-3"
+                  width={110}
+                  height={60}
+                  className="h-auto w-[110px] mr-3"
                 />
               </Link>
             </div>

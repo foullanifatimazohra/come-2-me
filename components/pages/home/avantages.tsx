@@ -8,11 +8,11 @@ export default async function Advantages() {
 
   return (
     <section className="bg-[#171A1F] text-white py-12">
-      <div className="container mx-auto max-lg:px-6 space-y-6 px-4">
-        <div className="flex max-lg:flex-col justify-between items-center ">
+      <div className="section-container space-y-6 px-4">
+        <div className="flex max-lg:flex-col justify-between items-center">
           <div className="w-full text-center relative mb-10">
-            <h2 className="heading-1 font-bold">{t("title")}</h2>
-            <p className="text-lg font-semibold">{t("subtitle")}</p>
+            <h2 className="heading-1 font-semibold">{t("title")}</h2>
+            <p className="text-base font-semibold">{t("subtitle")}</p>
           </div>
           <Button
             variant="outline"
@@ -26,8 +26,8 @@ export default async function Advantages() {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             cards.map((adv: any, i: number) => (
               <div key={i} className="space-y-2">
-                <h3 className="font-semibold text-2xl">{adv.title}</h3>
-                <p className="text-lg text-white whitespace-pre-line">
+                <h3 className="font-semibold text-[19px]">{adv.title}</h3>
+                <p className="text-sm text-white whitespace-pre-line max-w-[30ch]">
                   {adv.description}
                 </p>
               </div>

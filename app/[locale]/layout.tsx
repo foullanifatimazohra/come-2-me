@@ -39,7 +39,7 @@ export default async function RootLayout({
         <meta name="robots" content="index, follow" />
         <meta key="ogType" name="og:type" content="website" />
       </head>
-      <body className={`${poppins.className} antialiased`}>
+      <body className={`${poppins.className} ${poppins.variable} antialiased`}>
         <NextIntlClientProvider>
           <Header />
           {children}
