@@ -7,7 +7,7 @@ const Services = async () => {
   const data = await fetch("http://74.50.97.6:8080/api/categories", {
     method: "GET",
   });
-  const categories = await data.json();
+  const dataCat = await data.json();
 
   return (
     <section className="section-container my-22 text-center">
@@ -15,9 +15,9 @@ const Services = async () => {
       <h2 className="heading-1">{t("title")}</h2>
       <p className="sub-heading italic">{t("description")}</p>
 
-      <div className="mt-14 flex flex-wrap gap-6 justify-center">
-        {categories.length > 0 &&
-          categories.map((category: any) => (
+      <div className="mt-14 flex flex-wrap gap-[32px] items-center justify-center">
+        {dataCat.length > 0 &&
+          dataCat.map((category: any) => (
             <ServiceCard key={category.id} category={category} />
           ))}
       </div>
@@ -27,7 +27,7 @@ const Services = async () => {
 
 const ServiceCard = ({ category }: { category: any }) => {
   return (
-    <div className="py-2 px-1 w-[144px] h-[112px] card-shadow border border-[#F4F4F5] rounded-lg relative flex flex-col items-center justify-center gap-1">
+    <div className="py-2 px-1 w-[144px] lg:h-[112px] card-shadow border border-[#F4F4F5] rounded-lg relative flex flex-col items-center justify-center gap-1">
       <Image
         src={category?.icon}
         alt={category?.name}

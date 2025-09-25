@@ -15,12 +15,46 @@
           { "label": "Food", "href": "#" }
         ]
       },
-      { "label": "Partner", "href": "#about" },
-      { "label": "About", "href": "#services" },
-      { "label": "For Business", "href": "#partners" }
+      {
+        "label": "Partner",
+        "href": "#about",
+        "children": [
+          { "label": "Home Assistant", "href": "#" },
+          { "label": "Driver", "href": "#" },
+          { "label": "Courier", "href": "#" },
+          { "label": "Restaurant Owner", "href": "#" },
+          { "label": "Shop", "href": "#" }
+        ]
+      },
+      {
+        "label": "About",
+        "href": "#services",
+        "children": [
+          { "label": "About Us", "href": "#" },
+          { "label": "News", "href": "#" },
+          { "label": "Our Services", "href": "#" },
+          { "label": "How it works?", "href": "#" },
+          { "label": "Blogs", "href": "#" },
+          { "label": "Careers", "href": "#" },
+          { "label": "Privacy Policy", "href": "#" },
+          { "label": "Terms & Conditions", "href": "#" },
+          { "label": "Help & Contact", "href": "#" }
+        ]
+      },
+      {
+        "label": "For Business",
+        "href": "#partners",
+        "children": [
+          { "label": "Our Business Solutions", "href": "#" },
+          { "label": "News", "href": "#" },
+          { "label": "Our Services", "href": "#" },
+          { "label": "How it works?", "href": "#" },
+          { "label": "Business Support", "href": "#" }
+        ]
+      }
     ],
-    "cta": "Sign in",
-    "singnUp": "Sign up"
+    "cta": "Login",
+    "signUp": "Sign Up"
   },
   "homeServices": {
     "tabs": {

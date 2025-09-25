@@ -16,7 +16,7 @@ export default async function Features() {
           cards.map((item: any, index: number) => (
             <Card
               key={index}
-              className={`flex flex-row max-h-[200px] max-md:flex-col p-0 items-start justify-between rounded-2xl border-none  ${item.bg}`}
+              className={`flex flex-row lg:max-h-[200px] max-md:flex-col p-0 items-start justify-between rounded-2xl border-none  ${item.bg}`}
             >
               <CardContent className="py-6 pl-8">
                 <h3
@@ -42,7 +42,7 @@ export default async function Features() {
                   alt={item.title}
                   width={205}
                   height={205}
-                  className="object-cover w-50 max-md:w-full h-full rounded-r-2xl"
+                  className="object-cover w-50 max-md:w-full h-full lg:rounded-r-2xl rounded-b-2xl"
                 />
               )}
             </Card>
@@ -67,7 +67,7 @@ export async function Partner() {
           cards.map((card: any) => (
             <div
               key={card.id}
-              className={`text-[#171A1F] p-8 flex max-md:flex-col max-h-[220px] max-w-[550px] items-start justify-between gap-8 rounded-2xl custom-shadow-lg ${
+              className={`text-[#171A1F] p-8 flex max-md:flex-col lg:max-h-[220px] max-w-[550px] items-start justify-between gap-8 rounded-2xl custom-shadow-lg ${
                 card?.bg || "bg-white"
               }`}
             >

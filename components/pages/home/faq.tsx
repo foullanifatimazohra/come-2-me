@@ -11,8 +11,8 @@ export default async function FaqSection() {
   const items = t.raw("items") || [];
 
   return (
-    <section className="section-container">
-      <h2 className="text-center heading-1 mb-10">{t("title")}</h2>
+    <section className="section-container max-w-[1075px] mb-25">
+      <h2 className="text-center heading-1 mb-20">{t("title")}</h2>
       <Accordion type="single" collapsible className="w-full space-y-4">
         {items.length > 0 &&
           // eslint-disable-next-line @typescript-eslint/no-explicit-any

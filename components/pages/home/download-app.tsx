@@ -13,14 +13,14 @@ export default async function DownloadApp() {
           {t("title")}
         </h2>
 
-        <div className="flex flex-wrap gap-12 items-center justify-center text-white">
+        <div className="flex flex-col lg:flex-row gap-12 items-center justify-center text-white">
           {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             cards.map((card: any) =>
               card.type === "static" ? (
                 <div
                   key={card.id}
-                  className="bg-white max-w-[540px] max-h-[215px] text-[#171A1F] p-10 flex max-md:flex-col rounded-2xl items-center gap-8"
+                  className="bg-white max-w-[540px] lg:max-h-[215px] text-[#171A1F] p-10 flex max-md:flex-col rounded-2xl items-center gap-8"
                 >
                   <Image
                     src={card.image}
@@ -41,7 +41,7 @@ export default async function DownloadApp() {
               ) : (
                 <div
                   key={card.id}
-                  className="group bg-white max-w-[540px] max-h-[215px] text-[#171A1F] rounded-2xl p-10 flex max-md:flex-col items-center gap-8 h-full"
+                  className="group bg-white lg:max-w-[540px] w-full lg:max-h-[215px] text-[#171A1F] rounded-2xl p-10 flex max-md:flex-col items-center gap-8 h-full"
                 >
                   {/* image-only flip */}
                   <div className="w-[170px] h-[170px] perspective">

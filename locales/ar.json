@@ -9,18 +9,52 @@
         "label": "الخدمات",
         "href": "/",
         "children": [
-          { "label": "خدمات منزلية", "href": "/" },
-          { "label": "سائق", "href": "#" },
-          { "label": "السوق", "href": "#" },
-          { "label": "طعام", "href": "#" }
+          { "label": "Home Services", "href": "/" },
+          { "label": "Driver", "href": "#" },
+          { "label": "Market", "href": "#" },
+          { "label": "Food", "href": "#" }
         ]
       },
-      { "label": "شريك", "href": "#about" },
-      { "label": "من نحن", "href": "#services" },
-      { "label": "للشركات", "href": "#partners" }
+      {
+        "label": "شريك",
+        "href": "#about",
+        "children": [
+          { "label": "مساعد منزلي", "href": "#" },
+          { "label": "سائق", "href": "#" },
+          { "label": "مندوب توصيل", "href": "#" },
+          { "label": "مطعم", "href": "#" },
+          { "label": "متجر", "href": "#" }
+        ]
+      },
+      {
+        "label": "حول",
+        "href": "#services",
+        "children": [
+          { "label": "معلومات عنا", "href": "#" },
+          { "label": "الأخبار", "href": "#" },
+          { "label": "خدماتنا", "href": "#" },
+          { "label": "كيف يعمل؟", "href": "#" },
+          { "label": "المدونات", "href": "#" },
+          { "label": "وظائف", "href": "#" },
+          { "label": "سياسة الخصوصية", "href": "#" },
+          { "label": "الشروط والأحكام", "href": "#" },
+          { "label": "مساعدة & تواصل", "href": "#" }
+        ]
+      },
+      {
+        "label": "للشركات",
+        "href": "#partners",
+        "children": [
+          { "label": "حلولنا للشركات", "href": "#" },
+          { "label": "الأخبار", "href": "#" },
+          { "label": "خدماتنا", "href": "#" },
+          { "label": "كيف يعمل؟", "href": "#" },
+          { "label": "دعم الشركات", "href": "#" }
+        ]
+      }
     ],
     "cta": "تسجيل الدخول",
-    "singnUp": "إنشاء حساب"
+    "signUp": "إنشاء حساب"
   },
   "homeServices": {
     "tabs": {

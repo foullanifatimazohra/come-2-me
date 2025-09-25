@@ -94,7 +94,7 @@ export function Header() {
               size="default"
               variant="outline"
             >
-              {t("singnUp")}
+              {t("signUp")}
             </Button>
           </div>
 
@@ -156,7 +156,7 @@ export function Header() {
                   <LogIn />
                 </Button>
                 <Button onClick={() => setIsMenuOpen(false)} variant="outline">
-                  {t("singnUp")}
+                  {t("signUp")}
                 </Button>
               </div>
             </div>
