@@ -198,10 +198,10 @@ export default function Main() {
       </div>
       <Image
         alt="background"
-        src="/images/home-bg.jpg"
+        src="/images/home-bg.png"
         width={1440}
         height={700}
-        className="absolute top-0 left-0 w-full h-full object-cover object-center z-[-1]"
+        className="absolute top-0 left-0 w-full h-full object-cover object-top-right z-[-1]"
       />
     </main>
   );

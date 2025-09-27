@@ -21,13 +21,13 @@ export default async function Advantages() {
             {t("button")} <ArrowRight className="rtl:rotate-180" />
           </Button>
         </div>
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-2">
           {cards.length > 0 &&
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             cards.map((adv: any, i: number) => (
-              <div key={i} className="space-y-2">
-                <h3 className="font-semibold text-[19px]">{adv.title}</h3>
-                <p className="text-sm text-white whitespace-pre-line max-w-[30ch]">
+              <div key={i} className="space-y-2 w-full">
+                <h3 className="font-semibold text-xl">{adv.title}</h3>
+                <p className="text-lg font-medium text-white whitespace-pre-line max-w-[30ch]">
                   {adv.description}
                 </p>
               </div>

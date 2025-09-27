@@ -9,7 +9,7 @@ export default async function DownloadApp() {
   return (
     <section className="w-full bg-black py-5">
       <div className="section-container">
-        <h2 className="heading-1 text-[33px] text-white leading-relaxed text-center mb-[40px]">
+        <h2 className="heading-1  text-white leading-relaxed text-center mb-[40px]">
           {t("title")}
         </h2>
 
@@ -20,7 +20,7 @@ export default async function DownloadApp() {
               card.type === "static" ? (
                 <div
                   key={card.id}
-                  className="bg-white max-w-[540px] lg:max-h-[215px] text-[#171A1F] p-10 flex max-md:flex-col rounded-2xl items-center gap-8"
+                  className="bg-white max-w-[540px] lg:max-h-[215px] text-[#171A1F] p-10 flex max-md:flex-col rounded-none items-center gap-8"
                 >
                   <Image
                     src={card.image}
@@ -41,7 +41,7 @@ export default async function DownloadApp() {
               ) : (
                 <div
                   key={card.id}
-                  className="group bg-white lg:max-w-[540px] w-full lg:max-h-[215px] text-[#171A1F] rounded-2xl p-10 flex max-md:flex-col items-center gap-8 h-full"
+                  className="group bg-white lg:max-w-[540px] w-full lg:max-h-[215px] text-[#171A1F] rounded-none p-10 flex max-md:flex-col items-center gap-8 h-full"
                 >
                   {/* image-only flip */}
                   <div className="w-[170px] h-[170px] perspective">

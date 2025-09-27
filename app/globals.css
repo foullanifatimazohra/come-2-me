@@ -10,6 +10,9 @@
 @utility heading-1 {
   @apply text-[40px] font-bold leading-[56px];
 }
+@utility paragraph {
+  @apply font-normal text-[24px] leading-[48px] text-[#171A1F];
+}
 @utility card-shadow {
   box-shadow: 0px 2px 4px 0px rgba(23, 26, 31, 0.09);
 }

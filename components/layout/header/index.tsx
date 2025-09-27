@@ -14,6 +14,8 @@ export function Header() {
   const t = useTranslations("header");
   const pathname = usePathname();
 
+  const isLoginProcess = pathname.startsWith("/login");
+
   const navigation = t.raw("navigation") as {
     label: string;
     href: string;
@@ -39,64 +41,74 @@ export function Header() {
             </div>
 
             {/* Navigation Desktop */}
-            <nav className="hidden lg:flex relative">
-              {navigation.map((item, index) => (
-                <div key={index} className="relative">
-                  <button
-                    className={`capitalize font-semibold text-lg flex items-center py-2 px-4 rounded-md transition-colors ${
-                      openDropdown === index
-                        ? "bg-black !rounded-full !px-3 text-white"
-                        : pathname === item.href
-                        ? "font-extrabold text-[#171A1F]"
-                        : "text-[#171A1F]"
-                    }`}
-                    onClick={() =>
-                      setOpenDropdown(openDropdown === index ? null : index)
-                    }
-                  >
-                    {item.children && (
-                      <ChevronDown className="mr-[1px] h-6 w-6" />
-                    )}
-                    {item.label}
-                  </button>
+            {!isLoginProcess && (
+              <nav className="hidden lg:flex relative">
+                {navigation.map((item, index) => (
+                  <div key={index} className="relative">
+                    <button
+                      className={`capitalize font-semibold text-lg flex items-center py-2 px-4 rounded-md transition-colors ${
+                        openDropdown === index
+                          ? "bg-black !rounded-full !px-3 text-white"
+                          : pathname === item.href
+                          ? "font-extrabold text-[#171A1F]"
+                          : "text-[#171A1F]"
+                      }`}
+                      onClick={() =>
+                        setOpenDropdown(openDropdown === index ? null : index)
+                      }
+                    >
+                      {item.children && (
+                        <ChevronDown className="mr-[1px] h-6 w-6" />
+                      )}
+                      {item.label}
+                    </button>
 
-                  {item.children && openDropdown === index && (
-                    <div className="absolute left-0 mt-2 px-6 py-4 min-w-[260px] space-y-3 bg-[#171A1F] border rounded-lg shadow-lg">
-                      {item.children.map((child, i) => (
-                        <Link
-                          key={i}
-                          href={child.href}
-                          className={`block text-lg ${
-                            pathname === child.href
-                              ? "font-extrabold text-white"
-                              : "font-normal text-gray-200 hover:text-white"
-                          }`}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </nav>
+                    {item.children && openDropdown === index && (
+                      <div className="absolute left-0 mt-2 px-6 py-4 min-w-[260px] space-y-3 bg-[#171A1F] border rounded-lg shadow-lg">
+                        {item.children.map((child, i) => (
+                          <Link
+                            key={i}
+                            href={child.href}
+                            className={`block text-lg ${
+                              pathname === child.href
+                                ? "font-extrabold text-white"
+                                : "font-normal text-gray-200 hover:text-white"
+                            }`}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </nav>
+            )}
           </div>
 
           {/* CTA Desktop */}
-          <div className="hidden lg:flex gap-4 items-center">
-            <LanguageSwitcher />
-            <Button onClick={() => setIsMenuOpen(false)} size="default">
-              {t("cta")}
-              <LogIn />
-            </Button>
-            <Button
-              onClick={() => setIsMenuOpen(false)}
-              size="default"
-              variant="outline"
-            >
-              {t("signUp")}
-            </Button>
-          </div>
+          {!isLoginProcess && (
+            <div className="hidden lg:flex gap-4 items-center">
+              <LanguageSwitcher />
+              <Button
+                onClick={() => {
+                  window.location.href = "/login";
+                  setIsMenuOpen(false);
+                }}
+                size="default"
+              >
+                {t("cta")}
+                <LogIn />
+              </Button>
+              <Button
+                onClick={() => setIsMenuOpen(false)}
+                size="default"
+                variant="outline"
+              >
+                {t("signUp")}
+              </Button>
+            </div>
+          )}
 
           {/* Mobile Menu Toggle */}
           <div className="lg:hidden">
@@ -116,7 +128,7 @@ export function Header() {
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
+        {isMenuOpen && !isLoginProcess && (
           <div className="lg:hidden">
             <div className="px-3 pt-4 pb-6 space-y-4 bg-white border-t">
               {navigation.map((item, index) => (

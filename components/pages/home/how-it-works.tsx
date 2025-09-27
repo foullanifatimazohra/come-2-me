@@ -11,7 +11,7 @@ export default function HowItWorks() {
 
   return (
     <section className="w-full bg-white py-22">
-      <h2 className="heading-1 text-center font-bold mb-20">{t("title")}</h2>
+      <h2 className="heading-1 text-center font-bold mb-12">{t("title")}</h2>
       <div className="section-container flex flex-col lg:flex-row gap-20 items-center justify-center">
         {/* Left side - steps */}
         <div className="flex flex-col gap-4 justify-center">
@@ -21,7 +21,7 @@ export default function HowItWorks() {
               <div
                 key={step.id}
                 onClick={() => setActiveStep(index)}
-                className={`cursor-pointer max-w-[580px] min-h-[112px] flex flex-col justify-center rounded-2xl custom-shadow py-4 px-6 transition-all ${
+                className={`cursor-pointer max-w-[700px] min-h-[112px] flex flex-col justify-center rounded-2xl custom-shadow py-4 px-6 transition-all ${
                   activeStep === index
                     ? "bg-[#171A1F] text-white"
                     : "bg-[#F3F4F6] text-[#171A1F]"

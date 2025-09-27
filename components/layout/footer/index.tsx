@@ -5,12 +5,17 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
-import { languages } from "../header/laguage-switcher";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const t = useTranslations("footer");
   const locale = useLocale();
+
+  const isLoginProcess = window.location.pathname.startsWith("/login");
+
+  if (isLoginProcess) {
+    return <div />;
+  }
 
   return (
     <footer className="bg-white border-t border-gray-200">
