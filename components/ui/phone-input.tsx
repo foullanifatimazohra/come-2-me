@@ -35,7 +35,10 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
       return (
         <RPNInput.default
           ref={ref}
-          className={cn("flex", className)}
+          className={cn(
+            "flex items-center border border-[#BDC1CA] rounded-lg shadow-xs",
+            className
+          )}
           flagComponent={FlagComponent}
           countrySelectComponent={CountrySelect}
           inputComponent={InputComponent}
@@ -63,7 +66,10 @@ const InputComponent = React.forwardRef<
   React.ComponentProps<"input">
 >(({ className, ...props }, ref) => (
   <Input
-    className={cn("rounded-e-lg rounded-s-none", className)}
+    className={cn(
+      "rounded-e-lg rounded-s-none pl placeholder:text-[#4E4E4E] placeholder:!font-medium border-none shadow-none focus:border-none",
+      className
+    )}
     {...props}
     ref={ref}
   />
@@ -102,7 +108,7 @@ const CountrySelect = ({
         <Button
           type="button"
           variant="outline"
-          className="flex gap-1 rounded-e-none rounded-s-lg border-r-0 px-3 focus:z-10"
+          className="flex gap-1 border-none shadow-none rounded-e-none rounded-s-lg border-r-0 px-3 focus:z-10"
           disabled={disabled}
         >
           <FlagComponent
@@ -117,7 +123,7 @@ const CountrySelect = ({
           />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0">
+      <PopoverContent className="w-[300px] p-0 bg-white">
         <Command>
           <CommandInput
             value={searchValue}
@@ -137,7 +143,7 @@ const CountrySelect = ({
             placeholder="Search country..."
           />
           <CommandList>
-            <ScrollArea ref={scrollAreaRef} className="h-72">
+            <ScrollArea ref={scrollAreaRef} className="h-72 bg-white">
               <CommandEmpty>No country found.</CommandEmpty>
               <CommandGroup>
                 {countryList.map(({ value, label }) =>
