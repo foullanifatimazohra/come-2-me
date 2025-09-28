@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import {
@@ -14,8 +14,10 @@ import { Button } from "@/components/ui/button";
 const RESEND_TIMEOUT = 60; // seconds
 
 export default function PhoneLogin() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const phone = searchParams.get("phone");
+  const email = searchParams.get("email");
 
   const [otp, setOtp] = useState("");
   const [timeLeft, setTimeLeft] = useState(0);
@@ -29,7 +31,6 @@ export default function PhoneLogin() {
       localStorage.setItem("resendTimer", storedTimestamp);
     }
 
-    // Function to recompute time left
     const tick = () => {
       const ts = localStorage.getItem("resendTimer");
       if (!ts) return;
@@ -68,7 +69,7 @@ export default function PhoneLogin() {
             />
           </Link>
           <h1 className="text-center heading-1 text-3xl max-w-[45ch] leading-[48px]">
-            Vérifiez votre numéro de téléphone
+            Vérifiez votre{phone ? "numéro de téléphone" : "adresse e-mail"}
           </h1>
         </div>
 
@@ -76,12 +77,15 @@ export default function PhoneLogin() {
         <div className="text-center mt-25 space-y-1 flex items-center flex-col relative">
           <h2 className="heading-1">Code de vérification</h2>
           <p className="paragraph text-[#565D6D] text-[20px]">
-            Nous avons envoyé un code au ({phone}). Saisissez le code à usage
-            unique envoyé :
+            Nous avons envoyé un code au ({phone || email}). Saisissez le code à
+            usage unique envoyé :
           </p>
         </div>
 
-        <p className="flex items-center mt-10 text-[#3A74C9] gap-3 font-semibold text-base">
+        <p
+          className="flex cursor-pointer items-center mt-10 text-[#3A74C9] gap-3 font-semibold text-base"
+          onClick={() => router.back()}
+        >
           <Image
             height={23}
             width={23}
@@ -89,7 +93,7 @@ export default function PhoneLogin() {
             alt="phone-icon"
             priority
           />
-          Modifier votre numéro de téléphone
+          Modifier votre {phone ? "numéro de téléphone" : "adresse e-mail"}
         </p>
 
         {/* OTP Input */}
@@ -124,6 +128,19 @@ export default function PhoneLogin() {
             Renvoyer le code{timeLeft > 0 && ` dans ${timeLeft}s`}
           </Button>
         </div>
+        <Button
+          type="submit"
+          disabled={otp.length !== 4}
+          className="absolute bottom-0 right-0 font-semibold px-10 my-10 text-white text-xl"
+          onClick={() => {
+            if (otp.length === 4) {
+              // ✅ Redirect with query param to know the chosen method
+              router.push(`/login/email?otp=${encodeURIComponent(otp)}`);
+            }
+          }}
+        >
+          Suivant
+        </Button>
       </section>
     </main>
   );
