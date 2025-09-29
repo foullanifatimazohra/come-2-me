@@ -94,7 +94,7 @@ const Footer = () => {
         </div>
         <div className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* App Stores */}
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             <Link href="#">
               <Image
                 src="/google-play.svg"

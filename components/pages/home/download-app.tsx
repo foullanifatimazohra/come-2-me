@@ -20,7 +20,7 @@ export default async function DownloadApp() {
               card.type === "static" ? (
                 <div
                   key={card.id}
-                  className="bg-white max-w-[540px] lg:max-h-[215px] text-[#171A1F] p-10 flex max-md:flex-col rounded-none items-center gap-8"
+                  className="bg-white max-w-[540px] lg:max-h-[215px] text-[#171A1F] p-10 flex max-md:flex-col rounded-[10px] items-center gap-8"
                 >
                   <Image
                     src={card.image}
@@ -41,7 +41,7 @@ export default async function DownloadApp() {
               ) : (
                 <div
                   key={card.id}
-                  className="group bg-white lg:max-w-[540px] w-full lg:max-h-[215px] text-[#171A1F] rounded-none p-10 flex max-md:flex-col items-center gap-8 h-full"
+                  className="group bg-white lg:max-w-[540px] w-full lg:max-h-[215px] text-[#171A1F] rounded-[10px] p-10 flex max-md:flex-col items-center gap-8 h-full"
                 >
                   {/* image-only flip */}
                   <div className="w-[170px] h-[170px] perspective">
