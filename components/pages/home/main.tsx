@@ -16,14 +16,17 @@ import {
 import Image from "next/image";
 import { Loader2 } from "lucide-react";
 import useGeolocationAddress from "@/hooks/useGeolocationAddress";
+import { useRouter } from "@/i18n/navigation";
 
 export default function Main() {
   const t = useTranslations("homeServices");
   const [categories, setCategories] = useState<any[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
+  const router = useRouter();
 
   // ✅ Use custom hook
-  const { address, error, loading, getMyLocation } = useGeolocationAddress();
+  const { address, error, loading, getMyLocation, latlng } =
+    useGeolocationAddress();
 
   useEffect(() => {
     async function fetchCategories() {
@@ -36,17 +39,30 @@ export default function Main() {
         const formatted = data.map((cat: any) => ({
           id: String(cat.id),
           label: cat.name,
+          subcategories: cat.subcategories ?? [],
         }));
 
         setCategories(formatted);
       } catch (error) {
         console.error(error);
-      } finally {
       }
     }
 
     fetchCategories();
   }, []);
+
+  // ✅ goToAuth with all params
+  const goToAuth = (selectedCategory: string) => {
+    const params = new URLSearchParams();
+    params.set("category", selectedCategory);
+    if (latlng) {
+      params.set("lat", String(latlng.lat));
+      params.set("lng", String(latlng.lng));
+    }
+
+    router.push(`/login?${params.toString()}`);
+  };
+
   return (
     <main className="relative h-fit lg:h-screen">
       <div className="section-container z-10 lg:pt-40 pt-30">
@@ -167,7 +183,10 @@ export default function Main() {
                   </div>
 
                   {/* Service dropdown with categories + subcategories */}
-                  <Select disabled={!address}>
+                  <Select
+                    disabled={!address}
+                    onValueChange={(val) => goToAuth(val)} // ✅ trigger redirect
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder={t("servicePlaceholder")} />
                     </SelectTrigger>
@@ -196,6 +215,7 @@ export default function Main() {
           </TabsContent>
         </Tabs>
       </div>
+
       <Image
         alt="background"
         src="/images/home-bg.png"

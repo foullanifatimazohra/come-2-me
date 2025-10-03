@@ -16,13 +16,13 @@ export default async function Features() {
           cards.map((item: any, index: number) => (
             <Card
               key={index}
-              className={`flex flex-row lg:max-h-[200px] max-md:flex-col p-0 items-start justify-between ${
-                item?.image ? "rounded-2xl" : "rounded-l-2xl"
+              className={`flex flex-row lg:min-h-[200px] max-md:flex-col p-0 items-start justify-between ${
+                item?.image ? "rounded-2xl" : "rounded-2xl"
               }  border-none  ${item.bg}`}
             >
               <CardContent className="py-6 pl-8">
                 <h3
-                  className={`font-semibold text-2xl ${
+                  className={`font-semibold text-[22px] ${
                     !item?.image ? "max-w-[32ch]" : " max-w-[30ch]"
                   }`}
                 >
@@ -44,7 +44,7 @@ export default async function Features() {
                   alt={item.title}
                   width={205}
                   height={205}
-                  className="object-cover w-50 max-md:w-full h-full "
+                  className="object-cover w-50 max-md:w-full h-full rounded-r-2xl"
                 />
               )}
             </Card>

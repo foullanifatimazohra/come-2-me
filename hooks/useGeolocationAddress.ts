@@ -5,9 +5,12 @@ import { useState, useCallback } from "react";
 export default function useGeolocationAddress() {
   const [loading, setLoading] = useState(false);
   const [address, setAddress] = useState<string | null>(null);
+  const [latlng, setLatlng] = useState<{ lat: number; lng: number } | null>(
+    null
+  );
   const [error, setError] = useState<string | null>(null);
 
-  // Reverse geocode coordinates to address
+  // ✅ Reverse geocode coordinates to address
   const fetchAddress = useCallback(
     async (latitude: number, longitude: number) => {
       setLoading(true);
@@ -26,8 +29,10 @@ export default function useGeolocationAddress() {
         if (!response.ok) throw new Error("Erreur API Nominatim");
 
         const data = await response.json();
+
         if (data?.display_name) {
           setAddress(data.display_name);
+          setLatlng({ lat: latitude, lng: longitude }); // ✅ store coords
         } else {
           setError("Adresse introuvable");
         }
@@ -41,7 +46,7 @@ export default function useGeolocationAddress() {
     []
   );
 
-  // Trigger geolocation
+  // ✅ Trigger geolocation
   const getMyLocation = useCallback(() => {
     if (!navigator.geolocation) {
       setError("La géolocalisation n’est pas supportée par votre navigateur.");
@@ -62,5 +67,6 @@ export default function useGeolocationAddress() {
     );
   }, [fetchAddress]);
 
-  return { address, error, loading, getMyLocation };
+  // ✅ return coords + address
+  return { address, latlng, error, loading, getMyLocation };
 }
