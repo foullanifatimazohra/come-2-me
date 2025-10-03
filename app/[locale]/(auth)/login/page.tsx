@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState, useEffect } from "react";
 import { Link, useRouter } from "@/i18n/navigation";
 import Image from "next/image";
-import { Loader2, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import {
   getAuth,
   signInWithPhoneNumber,
@@ -58,9 +59,9 @@ export default function AuthFlowManager() {
 
   // --- Recaptcha Setup ---
   useEffect(() => {
-    if (typeof window !== "undefined" && !window.recaptchaVerifier) {
+    if (typeof window !== "undefined" && !(window as any).recaptchaVerifier) {
       try {
-        window.recaptchaVerifier = new RecaptchaVerifier(
+        (window as any).recaptchaVerifier = new RecaptchaVerifier(
           auth,
           "recaptcha-container",
           {
@@ -68,7 +69,7 @@ export default function AuthFlowManager() {
             callback: () => console.log("Recaptcha resolved."),
           }
         );
-        window.recaptchaVerifier.render();
+        (window as any).recaptchaVerifier.render();
         setIsAuthReady(true);
       } catch (e) {
         setError("Security check failed. Please refresh.");
@@ -126,16 +127,17 @@ export default function AuthFlowManager() {
     setLoading(true);
     setError(null);
     try {
-      if (!window.recaptchaVerifier) {
+      if (!(window as any).recaptchaVerifier) {
         setError("Recaptcha missing");
         setLoading(false);
         return;
       }
-      const appVerifier = window.recaptchaVerifier;
+      const appVerifier = (window as any).recaptchaVerifier;
       const result = await signInWithPhoneNumber(auth, phone, appVerifier);
       setConfirmationResult(result);
       setStep(AUTH_FLOW_STEPS.PHONE_OTP);
       startTimer();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       setError(`Auth failed: ${e.message}`);
     } finally {
