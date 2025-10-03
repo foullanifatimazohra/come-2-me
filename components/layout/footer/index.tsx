@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 import { Button } from "@/components/ui/button";
@@ -10,8 +10,9 @@ import { Button } from "@/components/ui/button";
 const Footer = () => {
   const t = useTranslations("footer");
   const locale = useLocale();
+  const pathname = usePathname();
 
-  const isLoginProcess = window.location.pathname.startsWith("/login");
+  const isLoginProcess = pathname.startsWith("/login");
 
   if (isLoginProcess) {
     return <div />;
